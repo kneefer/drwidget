@@ -1,6 +1,8 @@
 {
   "name": "drwidget",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "818bc02b"
 }
