@@ -4,7 +4,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-button expand="block" routerLink="/login" routerDirection="forward">Login</ion-button>
-  <ion-button expand="block" color="secondary" routerLink="/register" routerDirection="forward">Register</ion-button>
+<ion-content padding fullscreen>
+
+  <div class="drwidget-logo"></div>
+
+  <ion-slides pager="true" [options]="{effect: 'flip', autoHeight: true}">
+    <ion-slide>
+      <ion-text>
+        <h1>Witaj w aplikacji pacjenta</h1>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ipsum purus, posuere nec bibendum et,
+        bibendum nec diam.
+      </ion-text>
+    </ion-slide>
+    <ion-slide>
+      <ion-text>
+        <h1>Morbi consequat felis ac mi efficitur</h1>
+        Pellentesque cursus odio felis, id sodales lacus tincidunt in. Sed vitae enim cursus, dapibus nulla id,
+        dapibus mauris. Duis aliquam condimentum turpis sodales pretium. Pellentesque est nunc, pulvinar et hendrerit
+        nec, suscipit convallis tellus. Proin vitae maximus
+      </ion-text>
+    </ion-slide>
+    <ion-slide>
+      <ion-text>
+        <h1>Curabitur at malesuada tellus</h1>
+        Fusce in sem sed leo maximus lobortis nec quis neque. Nam dignissim gravida dui at laoreet. Sed tincidunt
+        libero in ex ultricies tristique.
+      </ion-text>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-button expand="block" shape="round" routerLink="/login" routerDirection="forward">LOGOWANIE</ion-button>
+  <ion-button expand="block" shape="round" routerLink="/register" routerDirection="forward">REJESTRACJA</ion-button>
 </ion-content>

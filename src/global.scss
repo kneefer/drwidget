@@ -9,3 +9,28 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+ion-header {
+  &::after {
+    display: none !important;
+  }
+
+  .title-md {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.drwidget-logo {
+  background: url('../resources/logo.svg') no-repeat center center;
+  background-size: contain;
+  height: 10rem
+}
+
+.button-round {
+  height: 3rem;
+}
