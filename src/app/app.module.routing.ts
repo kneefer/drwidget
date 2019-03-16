@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'members',
     canActivate: [AuthGuard],
-    loadChildren: './members-pages/members-routing.module#MembersRoutingModule'
+    loadChildren: './members-pages/members.module#MembersModule'
   },
   {
     path: 'home',
