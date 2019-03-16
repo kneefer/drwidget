@@ -27,6 +27,7 @@ export class AuthService {
   }
 
   public async login(userName: string): Promise<boolean> {
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await this.storage.set(TOKEN_KEY, `Bearer ${userName}`);
     switch (userName) {
       case 'ewa':

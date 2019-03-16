@@ -17,6 +17,9 @@ import { DashboardPage } from './dashboard.page';
       }
     ])
   ],
+  declarations: [
+    DashboardPage
+  ],
   exports: [RouterModule]
 })
 export class DashboardPageModule { }

@@ -19,7 +19,7 @@ export class LoginPage {
   ) { }
 
   public async login() {
-    this.showLoading();
+    await this.toggleLoading();
     try {
       const allowed = await this.authService.login(this.loginCreds.login);
       if (!allowed) {
@@ -28,13 +28,17 @@ export class LoginPage {
     } catch (err) {
       this.showError(err);
     }
+    await this.toggleLoading();
   }
 
-  private showLoading() {
-    this.loadingCtrl.create().then(loading => {
-      this.loading = loading;
-    });
-    this.loading.present();
+  private async toggleLoading() {
+    if (this.loading) {
+      this.loading.dismiss();
+      this.loading = undefined;
+    } else {
+      this.loading = await this.loadingCtrl.create();
+      this.loading.present();
+    }
   }
 
   private async showError(text) {
