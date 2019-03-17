@@ -25,12 +25,34 @@ ion-header {
   }
 }
 
+form {
+  ion-item.item {
+    --highlight-background: none;
+
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+    ion-label {
+      margin-left: 15px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
 .drwidget-logo {
   background: url('../resources/logo.svg') no-repeat center center;
   background-size: contain;
   height: 10rem
 }
 
-.button-round {
-  height: 3rem;
+ion-button {
+  &.button-round {
+    height: 3rem;
+  }
+
+  &.ion-color-secondary {
+    --ion-color-base: linear-gradient(to right, rgb(46, 61, 103) -30%, rgb(128, 190, 166) 100%) !important;
+  }
 }

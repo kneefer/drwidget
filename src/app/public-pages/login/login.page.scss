@@ -1,54 +1,26 @@
-app-login {
+:host {
+  --ion-background-color: radial-gradient(circle 61rem at center -34rem, transparent 97%, white 98%)
+}
 
-  .login-content {
-    background: #56CA96;
+ul {
+  list-style: none;
+  margin: 1.5rem 0;
 
-    .logo-row {
-      padding-top: 50px;
-      padding-bottom: 20px;
+  li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 16px;
+
+    &:before {
+      font-size: 40px;
+      content: '\2022';
+      line-height: 16px;
+      position: absolute;
+      left: 0;
     }
 
-    .login-box {
-      background: #399F8B;
-      padding: 20px 20px 0px 20px;
-      margin-top: 30px;
-    }
-
-    ion-row {
-      align-items: center;
-      text-align: center;
-    }
-
-    ion-item {
-      border-radius: 30px !important;
-      padding-left: 30px !important;
-      font-size: 0.9em;
-      margin-bottom: 10px;
-      border: 1px solid #ffffff;
-      border-bottom: 0px !important;
-      box-shadow: none !important;
-    }
-
-    .signup-col {
-      margin: 0px 16px 0px 16px;
-      padding-bottom: 20px;
-    }
-
-    .item-inner {
-      border-bottom-color: #ffffff !important;
-      box-shadow: none !important;
-    }
-
-    .submit-btn {
-      background: #51CFB1;
-      border-radius: 30px !important;
-      border: 1px solid #ffffff;
-    }
-
-    .register-btn {
-      color: #ffffff;
-      font-size: 0.8em;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
     }
   }
-
 }
