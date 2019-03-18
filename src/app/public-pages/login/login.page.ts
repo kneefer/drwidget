@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController, MenuController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,24 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private menuCtrl: MenuController
   ) { }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+    this.menuCtrl.get().then(menu => menu.swipeGesture = false);
+  }
+
+  ionViewWillLeave() {
+    this.menuCtrl.enable(true);
+    this.menuCtrl.get().then(menu => menu.swipeGesture = true);
+  }
 
   public async login() {
     await this.toggleLoading();
     try {
-      const allowed = await this.authService.login(this.loginCreds.login);
+      const allowed = await this.authService.login(this.loginCreds.login, this.loginCreds.password);
       if (!allowed) {
         this.showError('Access Denied');
       }

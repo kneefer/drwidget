@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   private async checkToken() {
-    const token = this.storage.get(TOKEN_KEY);
+    const token = await this.storage.get(TOKEN_KEY);
     if (token) {
       this.authenticationState.next(true);
     }
@@ -34,17 +34,15 @@ export class AuthService {
     return from(this.storage.get(TOKEN_KEY));
   }
 
-  public async login(userName: string): Promise<boolean> {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    await this.storage.set(TOKEN_KEY, `Bearer ${userName}`);
-    try { await this.api.apiTokenAuthCreate({ username: 'krzychu', password: 'krzychu' }).toPromise(); } catch {}
-    switch (userName) {
-      case 'ewa':
-      case 'kuba':
-        this.authenticationState.next(true);
-        return true;
-      default:
-        return false;
+  public async login(userName: string, password: string): Promise<boolean> {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    try {
+      const token = await this.api.apiTokenAuthCreate({ username: 'kszychu', password: 'kszychu' }).toPromise();
+      await this.storage.set(TOKEN_KEY, `Bearer ${token}`);
+      this.authenticationState.next(true);
+      return true;
+    } catch {
+      return false;
     }
   }
 

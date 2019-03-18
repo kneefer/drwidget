@@ -5,6 +5,9 @@
 :root {
   --ion-background-color: linear-gradient(rgb(46, 61, 103) -30%, rgb(128, 190, 166) 100%) !important;
   --ion-overlay-background-color: var(--ion-background-color) !important;
+  --ion-tab-bar-background: white;
+  --ion-tab-bar-color: black;
+  --ion-tab-bar-color-activated: blue;
   --ion-item-background: none;
   --ion-toolbar-background: transparent;
   --ion-toolbar-color: white;

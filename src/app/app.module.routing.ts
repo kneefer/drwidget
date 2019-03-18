@@ -11,19 +11,7 @@ const routes: Routes = [
     path: 'members',
     canActivate: [AuthGuard],
     loadChildren: './members-pages/members.module#MembersModule'
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  {
-    path: 'tabs',
-    loadChildren: './tabs/tabs.module#TabsModule'
-  },
+  }
 ];
 
 @NgModule({
