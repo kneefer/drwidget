@@ -1,4 +1,9 @@
 {
+  "linterOptions": {
+    "exclude": [
+      "src/app/api-proxy/**/*.*"
+    ]
+  },
   "rulesDirectory": [
     "codelyzer"
   ],

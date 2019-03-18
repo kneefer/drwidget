@@ -1,7 +1,8 @@
 import { Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
+import { ApiApiService } from '@api-proxy';
 
 const TOKEN_KEY = 'auth-token';
 
@@ -12,23 +13,31 @@ export class AuthService {
 
   public authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage, private plt: Platform) {
+  constructor(
+    private storage: Storage,
+    private plt: Platform,
+    private api: ApiApiService
+  ) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
   }
 
-  private checkToken() {
-    this.storage.get(TOKEN_KEY).then(res => {
-      if (res) {
-        this.authenticationState.next(true);
-      }
-    });
+  private async checkToken() {
+    const token = this.storage.get(TOKEN_KEY);
+    if (token) {
+      this.authenticationState.next(true);
+    }
+  }
+
+  public getToken(): Observable<string> {
+    return from(this.storage.get(TOKEN_KEY));
   }
 
   public async login(userName: string): Promise<boolean> {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     await this.storage.set(TOKEN_KEY, `Bearer ${userName}`);
+    try { await this.api.apiTokenAuthCreate({ username: 'krzychu', password: 'krzychu' }).toPromise(); } catch {}
     switch (userName) {
       case 'ewa':
       case 'kuba':

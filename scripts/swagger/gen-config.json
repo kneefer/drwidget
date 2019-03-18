@@ -1,0 +1,5 @@
+{
+  "ngVersion": "7.0.3",
+  "serviceSuffix": "ApiService",
+  "serviceFileSuffix": ".api.service"
+}

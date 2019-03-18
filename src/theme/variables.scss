@@ -4,6 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   --ion-background-color: linear-gradient(rgb(46, 61, 103) -30%, rgb(128, 190, 166) 100%) !important;
+  --ion-overlay-background-color: var(--ion-background-color) !important;
   --ion-item-background: none;
   --ion-toolbar-background: transparent;
   --ion-toolbar-color: white;
