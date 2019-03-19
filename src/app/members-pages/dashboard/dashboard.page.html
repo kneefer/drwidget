@@ -1,14 +1,61 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>My Dashboard</ion-title>
+    <ion-title>GŁÓWNY EKRAN</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding fullscreen>
-  some content
+<ion-content fullscreen>
+
+  <div>
+    <ion-list-header>
+      Aktualne wizyty
+    </ion-list-header>
+
+    <div class="drwidget-cards-wrapper">
+      <ion-card class="drwidget-card visit-card upcoming-visit-card img-doctor ion-activatable"
+                (click)="onVisitClick(upcomingVisit)"
+                *ngFor="let upcomingVisit of upcomingVisits">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="visit-date">{{upcomingVisit.date}}</div>
+        <div>
+          <div class="visit-name">{{upcomingVisit.name}}</div>
+          <div class="visit-doctor">{{upcomingVisit.doctorFullName}}</div>
+        </div>
+        <div>
+          <div>{{upcomingVisit.clinicName}}</div>
+          <div>{{upcomingVisit.clinicAddress}}</div>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <div style="margin: 2rem 0">
+    <ion-list-header padding >
+      <span>Odbyte wizyty</span>
+      <span>Zobacz wszystkie ></span>
+    </ion-list-header>
+
+    <div class="drwidget-cards-wrapper">
+      <ion-card class="drwidget-card visit-card ion-activatable img-doctor"
+                (click)="onVisitClick(pastVisit)"
+                *ngFor="let pastVisit of pastVisits">
+        <ion-ripple-effect></ion-ripple-effect>
+        <div class="visit-name">{{pastVisit.name}}</div>
+        <div class="visit-doctor">{{pastVisit.doctorFullName}}</div>
+      </ion-card>
+    </div>
+  </div>
+
+  <div padding>
+    <ion-button color="primary" expand="block" shape="round">UMÓW WIZYTĘ</ion-button>
+  </div>
+
 </ion-content>

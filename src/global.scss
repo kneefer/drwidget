@@ -28,7 +28,6 @@ ion-header {
 form {
   ion-item.item {
     --highlight-background: none;
-
     background-color: white;
     color: black;
     margin-bottom: 10px;
@@ -47,6 +46,10 @@ form {
   height: 10rem
 }
 
+.img-doctor {
+  background: url('../resources/doctor.png') no-repeat center center;
+}
+
 ion-button {
   &.button-round {
     height: 3rem;
@@ -54,5 +57,34 @@ ion-button {
 
   &.ion-color-secondary {
     --ion-color-base: linear-gradient(to right, rgb(46, 61, 103) -30%, rgb(128, 190, 166) 100%) !important;
+  }
+}
+
+ion-list-header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.drwidget-cards-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .drwidget-card {
+    flex: 0 0 auto;
+  }
+}
+
+.drwidget-card {
+  padding: 20px;
+  border-radius: 40px;
+  margin-right: 4vw;
+
+  &:first-child {
+    margin-left: 4vw;
   }
 }

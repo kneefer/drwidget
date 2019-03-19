@@ -1,0 +1,30 @@
+.visit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80vw;
+  color: white;
+  background-size: cover;
+
+  &.upcoming-visit-card {
+    height: 13rem;
+  }
+
+  .visit-date {
+    text-align: right;
+  }
+
+  .visit-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .visit-doctor {
+    font-size: 1.2rem;
+  }
+}
+
+ion-list-header {
+  display: flex;
+  justify-content: space-between;
+}
