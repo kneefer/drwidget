@@ -9,7 +9,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/members/dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
-      { path: 'visits', loadChildren: './visits/visits.module#VisitsPageModule' }
+      { path: 'visits', loadChildren: './visits/visits.module#VisitsPageModule' },
+      { path: 'examinations', loadChildren: './examinations/examinations.module#ExaminationsPageModule' },
+      { path: 'medicines', loadChildren: './medicines/medicines.module#MedicinesPageModule' }
     ]
   }
 ];

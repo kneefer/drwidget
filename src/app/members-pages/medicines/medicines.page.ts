@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-visits',
-  templateUrl: './visits.page.html',
-  styleUrls: ['./visits.page.scss'],
+  selector: 'app-medicines',
+  templateUrl: './medicines.page.html',
+  styleUrls: ['./medicines.page.scss'],
 })
-export class VisitsPage {
+export class MedicinesPage {
   constructor(
     public toastController: ToastController
   ) { }
